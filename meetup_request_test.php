@@ -9,7 +9,7 @@ class MeetupRequestTests extends PHPUnit_Framework_TestCase
 
   protected function setUp()
   {
-    $this->meetup_request = new MeetupRequest();
+    $this->meetup_request = new MeetupRequest('80302');
   }
 
   protected function tearDown()
@@ -31,13 +31,14 @@ class MeetupRequestTests extends PHPUnit_Framework_TestCase
 
   public function testeventSearch($a, $b, $expected)
   {
-    $result = $this->meetup_request->add($a, $b);
+    $result = $this->meetup_request->eventSearch();
     $this->assertEquals($expected, $result);
   }
 
   public function testgroupSearch()
   {
-
+    $result = $this->meetup_request->groupSearch();
+    $this->assertEquals($expected, $result);
   }
  
 }

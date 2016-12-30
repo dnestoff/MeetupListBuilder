@@ -16,10 +16,11 @@ class MeetupRequest
     const URL = 'https://api.meetup.com';
     const FORMAT = 'json';
     public $sign = true;
+    public $zip;
     public $lat;
     public $long;
 
-    public function __construct($zip, $args) 
+    public function __construct($zip) 
     {
       $this->zip = $zip;
     }
@@ -36,18 +37,28 @@ class MeetupRequest
       // return [lat, long]
     // }
 
-    // protected function callApi() {
-      // make request to meetup API 
+    // protected function callApi($request) {
+      // file_get_contents($request); 
     // }
 
-    // protected function parseResponse() {
+    // protected function parseResponse($response) {
       // convert from json to stdClass 
+        // return json_decode($reponse);
     // }
 
-    // protected function constructParams() {
-      // concatenate all params and return as string
+    // protected function constructParams($search_type) {
+      // SWITCH to change value of $search_type (group/event)
+      // toggle search type based on group vs event search
+      // lat_long = zip_to_lat_long($zip);
+      // $params = '?key=' . KEY . '&lat=' . $lat_long[0] . '&lon=' . $lat_long[1] . '&format=' . FORMAT;
+      // return URL . $search_type . $params;
     // }
 
+    // protected function convertTime($epoch_time, $utc_offset) {
+      // add epoch time and utc_offset
+      // convert from epoch to DateTime
+        // echo date("Y-m-d H:i:s", substr($epoch, 0, 10)); 
+    // }
 
 }
 
@@ -72,3 +83,6 @@ print_r($data[1]);
 // converting from epoch time -- still incorrect timezone (need to subtract offset)
 $epoch = $data[1]->time;
 echo date("Y-m-d H:i:s", substr($epoch, 0, 10));
+
+// Google Maps API request (with my key)
+  // https://maps.googleapis.com/maps/api/geocode/json?address=80302&key=AIzaSyCtnWtHl15nusQIPNE8pwDKagAzI0ZPNw8
