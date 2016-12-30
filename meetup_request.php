@@ -12,23 +12,42 @@
 
 class MeetupRequest
 {
-    public $key='2d126d4d6b61a4a2012b433218278';
+    const KEY = '2d126d4d6b61a4a2012b433218278';
+    const URL = 'https://api.meetup.com';
+    const FORMAT = 'json';
     public $sign = true;
     public $lat;
     public $long;
 
-    public function __construct($lat, $long, $args) 
+    public function __construct($zip, $args) 
     {
-
+      $this->zip = $zip;
     }
  
-    public function event_search() {
+    public function eventSearch() {
       // searching events in a given city
     }
 
-    public function group_search() {
-
+    public function groupSearch() {
+      // searching groups in a given city
     }
+
+    // protected function zip_to_lat_long($zip) {
+      // return [lat, long]
+    // }
+
+    // protected function callApi() {
+      // make request to meetup API 
+    // }
+
+    // protected function parseResponse() {
+      // convert from json to stdClass 
+    // }
+
+    // protected function constructParams() {
+      // concatenate all params and return as string
+    // }
+
 
 }
 
@@ -50,6 +69,6 @@ echo $response[0][0];
 $data = json_decode($response);
 print_r($data[1]);
 
-// converting from epoch time -- still incorrect timezone
+// converting from epoch time -- still incorrect timezone (need to subtract offset)
 $epoch = $data[1]->time;
 echo date("Y-m-d H:i:s", substr($epoch, 0, 10));
