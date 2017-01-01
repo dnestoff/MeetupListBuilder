@@ -17,28 +17,41 @@ class MeetupRequestTests extends PHPUnit_Framework_TestCase
     $this->meetup_request = NULL;
   }
 
-  public function addDataProvider() {
+  public function eventSearchDataProvider() {
     return array(
-      array(1, 2, 3),
-      array(0, 0, 0),
-      array(-1, -1, -2),
+      array(80302),
+      array(4407),
     );
   }
 
   /**
-     * @dataProvider addDataProvider
+     * @dataProvider eventSearchDataProvider
      */
 
-  public function testeventSearch($a, $b, $expected)
+  public function testeventSearch()
   {
     $result = $this->meetup_request->eventSearch();
-    $this->assertEquals($expected, $result);
+    $this->assertArrayHasKey('id', $result[0]);
+    $this->assertNotNull($result);
   }
+
+  public function groupSearchDataProvider() {
+    return array(
+      array(80302),
+      array(4407),
+    );
+  }
+
+  /**
+     * @dataProvider groupSearchDataProvider
+     */
 
   public function testgroupSearch()
   {
     $result = $this->meetup_request->groupSearch();
-    $this->assertEquals($expected, $result);
+    $this->assertArrayHasKey('id', $result[0]);
+    $this->assertNotNull($result);
   }
+
  
 }
