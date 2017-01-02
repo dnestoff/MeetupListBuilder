@@ -10,56 +10,35 @@ class MeetupRequest
     public $lat;
     public $lon;
 
-    public function __construct($zip) 
+    public function __construct($zip, $request_type) 
     {
       $this->zip = $zip;
+      $this->request_type = $request_type;
     }
  
-    public function eventSearch() {
+    public function search() {
       $this->zipToLatLong();
-      $request = $this->constructParams('event');
-      $response = $this->callApi($request);
-      return $this->parseResponse($response);
-    }
-
-    public function groupSearch() {
-      $this->zipToLatLong();
-      $request = $this->constructParams('group');
-      $response = $this->callApi($request);
-      return $this->parseResponse($response);
-    }
-
-    public function validate_zip()
-    {
-      if (strlen($this->zip) == 4) {
-        $this->zip = '0' . $this->zip;
-      } else if (strlen($this->zip) < 4 || strlen($this->zip) >= 6) {
-
-      }
+      $request = $this->constructParams();
+      return $this->callApi($request);
     }
 
     protected function zipToLatLong() {
       $url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' . $this->zip . '&key=' . MeetupRequest::GOOGLE_MAPS_KEY;
       $response = $this->callApi($url);
-      $maps_array = $this->parseResponse($response);
-      $lat_lon_array = $maps_array['results'][0]['geometry']['location'];
+      $lat_lon_array = $response['results'][0]['geometry']['location'];
       $this->lat = $lat_lon_array['lat'];
       $this->lon = $lat_lon_array['lng'];
-      return null;
+      return;
     }
 
     protected function callApi($request) {
-      return file_get_contents($request); 
+      $json_object = file_get_contents($request); 
+      return json_decode($json_object, true);
     }
 
-    protected function parseResponse($response) {
-      // convert from json to stdClass 
-      return json_decode($response, true);
-    }
-
-    protected function constructParams($search_type) {
+    protected function constructParams() {
       // SWITCH for value of $route (group OR event)
-      switch ($search_type) {
+      switch ($this->request_type) {
         case 'event':
           $route = '/find/events';
           break;

@@ -9,7 +9,6 @@ class MeetupRequestTests extends PHPUnit_Framework_TestCase
 
   protected function setUp()
   {
-    $this->meetup_request = new MeetupRequest('80302');
   }
 
   protected function tearDown()
@@ -17,41 +16,23 @@ class MeetupRequestTests extends PHPUnit_Framework_TestCase
     $this->meetup_request = NULL;
   }
 
-  public function eventSearchDataProvider() {
+  public function searchDataProvider() {
     return array(
-      array('80302'),
-      array('4407'),
+      array('80302', 'group'),
+      array('4407', 'event'),
     );
   }
 
   /**
-     * @dataProvider eventSearchDataProvider
+     * @dataProvider searchDataProvider
      */
 
-  public function testeventSearch()
+  public function testsearch($zip, $type)
   {
-    $result = $this->meetup_request->eventSearch();
+    $this->meetup_request = new MeetupRequest($zip, $type);
+    $result = $this->meetup_request->search();
     $this->assertArrayHasKey('id', $result[0]);
     $this->assertNotNull($result);
   }
-
-  public function groupSearchDataProvider() {
-    return array(
-      array('80302'),
-      array('4407'),
-    );
-  }
-
-  /**
-     * @dataProvider groupSearchDataProvider
-     */
-
-  public function testgroupSearch()
-  {
-    $result = $this->meetup_request->groupSearch();
-    $this->assertArrayHasKey('id', $result[0]);
-    $this->assertNotNull($result);
-  }
-
  
 }
