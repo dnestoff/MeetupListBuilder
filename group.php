@@ -18,11 +18,11 @@ class Group
     }
 
     public function displayGroup() {
-      $group_info = array();
+      $group_info = '';
       foreach ($this as $key => $value) {
         $key_with_space = str_replace('_', ' ', $key);
-        array_push($group_info, (ucfirst($key_with_space) . ": " . $value));
-      };
+        $group_info = $group_info . (ucfirst($key_with_space) . ": " . $value . "\n");
+      }
       return $group_info;
     }
 

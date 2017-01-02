@@ -18,15 +18,15 @@ class Event
     }
 
     public function displayEvent() {
-      $output = array();
+      $event_info = '';
       foreach ($this as $key => $value) {
-        array_push($output, (ucfirst($key) . ": " . $value));
-      };
-      return $output;
+        $event_info = $event_info . (ucfirst($key) . ": " . $value . "\n");
+      }
+      return $event_info;
     }
 
     protected function convertTimeToDate($epoch_time, $utc_offset) {
-      $epoch = $epoch_time - $utc_offset;
+      $epoch = $epoch_time + $utc_offset;
       return date("m-d-Y @ H:i", substr($epoch, 0, 10));
     }
 
