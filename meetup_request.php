@@ -16,11 +16,9 @@ class MeetupRequest
     }
  
     public function eventSearch() {
-      // searching events in a given city
       $this->zipToLatLong();
       $request = $this->constructParams('event');
       $response = $this->callApi($request);
-      print_r($this->parseResponse($response));
       return $this->parseResponse($response);
     }
 
@@ -31,6 +29,14 @@ class MeetupRequest
       return $this->parseResponse($response);
     }
 
+    public function validate_zip()
+    {
+      if (strlen($this->zip) == 4) {
+        $this->zip = '0' . $this->zip;
+      } else if (strlen($this->zip) < 4 || strlen($this->zip) >= 6) {
+
+      }
+    }
 
     protected function zipToLatLong() {
       $url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' . $this->zip . '&key=' . MeetupRequest::GOOGLE_MAPS_KEY;
