@@ -19,7 +19,7 @@ class MeetupRequestTests extends PHPUnit_Framework_TestCase
   public function searchDataProvider() {
     return array(
       array('group', '80302'),
-      array('event', '4407'),
+      array('event', '44070'),
     );
   }
 

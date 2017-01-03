@@ -47,7 +47,7 @@ class EventTests extends PHPUnit_Framework_TestCase
 
   public function testdisplay()
   {
-    $expected = "\nName: Johnny's Day Date\nGroup name: Everyone is happy\nTime: 01-02-2017 @ 14:00\nUrl: https://www.meetup.com/Front-Range-Mind-Body-Fitness-Meetup/events/236488997/\n";
+    $expected = "\nName: Johnny's Day Date\nGroup name: Everyone is happy\nTime: 01-02-2017 @ 13:00\nUrl: https://www.meetup.com/Front-Range-Mind-Body-Fitness-Meetup/events/236488997/\n";
     $result = $this->event->display();
 
     $this->assertEquals($expected, $result);
