@@ -3,8 +3,8 @@
 class Event
 {
     public $name;
-    public $time;
     public $group_name;
+    public $time;
     public $url;
     public $description;
 
@@ -13,21 +13,25 @@ class Event
       $this->name = $args['name'];
       $this->group_name = $args['group_name'];
       $this->url = $args['url'];
-      $this->description = $args['description'];
+      // $this->description = $args['description'];
       $this->time = $this->convertTimeToDate($args['epoch_time'], $args['utc_offset']);
     }
 
-    public function displayEvent() {
-      $event_info = '';
+    public function display() {
+      $event_info = "\n";
       foreach ($this as $key => $value) {
-        $event_info = $event_info . (ucfirst($key) . ": " . $value . "\n");
+        if ($value != '') {
+          $key_with_space = str_replace('_', ' ', $key);
+          $event_info = $event_info . (ucfirst($key_with_space) . ": " . $value . "\n");
+        }
       }
       return $event_info;
     }
 
     protected function convertTimeToDate($epoch_time, $utc_offset) {
-      $epoch = $epoch_time + $utc_offset;
-      return date("m-d-Y @ H:i", substr($epoch, 0, 10));
+      date_default_timezone_set('America/Chicago');
+      // $epoch = $epoch_time + $utc_offset;
+      return date("m-d-Y @ H:i", substr($epoch_time, 0, 10));
     }
 
 

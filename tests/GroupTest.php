@@ -6,8 +6,8 @@ class GroupTests extends PHPUnit_Framework_TestCase
 {
   
   private $group;
-  private $args = array('group_name' => "Johnny's Team", 'url' => 'https://www.meetup.com/Front-Range-Mind-Body-Fitness-Meetup/events/236488997/', 'description' => 'blah blah blah blah blah', 'category' => 'Business', 'organizer_name' => "Jane Beach");
-  private $expected = "Group name: Johnny's Team\nDescription: blah blah blah blah blah\nOrganizer name: Jane Beach\nCategory: Business\nUrl: https://www.meetup.com/Front-Range-Mind-Body-Fitness-Meetup/events/236488997/\n";
+  private $args = array('name' => "Johnny's Team", 'url' => 'https://www.meetup.com/Front-Range-Mind-Body-Fitness-Meetup/events/236488997/', 'description' => 'blah blah blah blah blah', 'category' => 'Business', 'organizer_name' => "Jane Beach");
+  private $expected = "\nName: Johnny's Team\nOrganizer name: Jane Beach\nCategory: Business\nUrl: https://www.meetup.com/Front-Range-Mind-Body-Fitness-Meetup/events/236488997/\n";
 
   protected function setUp()
   {
@@ -19,9 +19,9 @@ class GroupTests extends PHPUnit_Framework_TestCase
     $this->group = NULL;
   }
 
-  public function testdisplayGroup()
+  public function testdisplay()
   {
-    $result = $this->group->displayGroup();
+    $result = $this->group->display();
     $this->assertEquals($this->expected, $result);
   }
 
