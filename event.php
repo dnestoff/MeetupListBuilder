@@ -6,14 +6,12 @@ class Event
     public $group_name;
     public $time;
     public $url;
-    public $description;
 
     public function __construct($args) 
     {
       $this->name = $args['name'];
       $this->group_name = $args['group_name'];
       $this->url = $args['url'];
-      // $this->description = $args['description'];
       $this->time = $this->convertTimeToDate($args['epoch_time'], $args['utc_offset']);
     }
 

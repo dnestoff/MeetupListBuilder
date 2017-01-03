@@ -3,7 +3,6 @@
 class Group
 {
     public $name;
-    public $description;
     public $organizer_name;
     public $category;
     public $url;
@@ -11,7 +10,6 @@ class Group
     public function __construct($args) 
     {
       $this->name = $args['name'];
-      // $this->description = $args['description'];
       $this->url = $args['url'];
       $this->category = $args['category'];
       $this->organizer_name = $args['organizer_name'];
