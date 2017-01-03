@@ -36,3 +36,5 @@ class MeetupRequestTests extends PHPUnit_Framework_TestCase
   }
  
 }
+
+?>

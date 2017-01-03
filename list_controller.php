@@ -6,8 +6,8 @@ require('meetup_list.php');
 class ListController
 {
 
-    public $search_type;
-    public $zip;
+    protected $search_type;
+    protected $zip;
 
     public function __construct($search_type, $zip) 
     {
@@ -32,6 +32,5 @@ class ListController
     }
 
 }
-
 
 ?>

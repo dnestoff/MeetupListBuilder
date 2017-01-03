@@ -31,6 +31,7 @@ class Event
       return date("m-d-Y @ H:i", substr($epoch_time, 0, 10));
     }
 
-
 }
+
+?>
 

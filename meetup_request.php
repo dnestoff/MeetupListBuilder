@@ -7,8 +7,8 @@ class MeetupRequest
     const URL = 'https://api.meetup.com';
     const FORMAT = 'json';
     public $zip;
-    public $lat;
-    public $lon;
+    protected $lat;
+    protected $lon;
 
     public function __construct($request_type, $zip) 
     {
@@ -32,7 +32,6 @@ class MeetupRequest
     }
 
     protected function constructParams() {
-      // SWITCH for value of $route (group OR event)
       switch ($this->request_type) {
         case 'event':
           $route = '/find/events';
@@ -46,9 +45,11 @@ class MeetupRequest
     }
 
     protected function callApi($request) {
-      $json_object = file_get_contents($request); 
-      return json_decode($json_object, true);
+      $json_data = file_get_contents($request);
+      $data_as_array = json_decode($json_data, true);
+      return $data_as_array;
     }
 
 }
 
+?>
