@@ -54,7 +54,7 @@ class MeetupListTests extends PHPUnit_Framework_TestCase
     $this->assertRegexp($expected, $result);
   }
 
-  public function testdisplayListReturnsNoDataMessageIfNoData()
+  public function testdisplayListReturnsNoDataMessageIfEmpty()
   {
     $this->list = new MeetupList('group');
     $result = $this->list->displayList();
@@ -68,14 +68,16 @@ class MeetupListTests extends PHPUnit_Framework_TestCase
     $this->list->add($this->event_data);
 
     $this->assertEquals(count($this->list->items), 2);
+    $this->assertContainsOnlyInstancesOf('Event', $this->list->items);
   }
 
   public function testaddGroup()
   {
     $this->list = new MeetupList('group');
     $result = $this->list->add($this->group_data);
-    
+
     $this->assertEquals(count($this->list->items), 1);
+    $this->assertContainsOnlyInstancesOf('Group', $this->list->items);
   }
 
  

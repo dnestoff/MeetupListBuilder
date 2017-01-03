@@ -33,7 +33,7 @@ class ListControllerTests extends PHPUnit_Framework_TestCase
       ->setConstructorArgs(array($type, $zip))
       ->setMethods(array('getData'))
       ->getMock();
-      
+
     $event_data = array(
       array('name' => "Let's get out and get moving!",
       'time' => 1483552800000,
@@ -44,7 +44,6 @@ class ListControllerTests extends PHPUnit_Framework_TestCase
       'description' => "<p>Walking is the super food of movement, but like any super food the way you consume it matters."));
 
     $expected = "\nName: Let's get out and get moving!\nGroup name: Front Range Mind & Body Fitness\nTime: 01-04-2017 @ 12:00\nUrl: https://www.meetup.com/Front-Range-Mind-Body-Fitness-Meetup/events/236488997/\n";
-
 
     $controller->expects($this->once())
       ->method('getData')

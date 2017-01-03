@@ -18,8 +18,8 @@ class MeetupRequestTests extends PHPUnit_Framework_TestCase
 
   public function searchDataProvider() {
     return array(
-      array('80302', 'group'),
-      array('4407', 'event'),
+      array('group', '80302'),
+      array('event', '4407'),
     );
   }
 
@@ -27,9 +27,9 @@ class MeetupRequestTests extends PHPUnit_Framework_TestCase
      * @dataProvider searchDataProvider
      */
 
-  public function testsearch($zip, $type)
+  public function testsearch($type, $zip)
   {
-    $this->meetup_request = new MeetupRequest($zip, $type);
+    $this->meetup_request = new MeetupRequest($type, $zip);
     $result = $this->meetup_request->search();
     $this->assertArrayHasKey('id', $result[0]);
     $this->assertNotNull($result);

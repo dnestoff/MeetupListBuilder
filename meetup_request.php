@@ -10,10 +10,10 @@ class MeetupRequest
     public $lat;
     public $lon;
 
-    public function __construct($zip, $request_type) 
+    public function __construct($request_type, $zip) 
     {
-      $this->zip = $zip;
       $this->request_type = $request_type;
+      $this->zip = $zip;
     }
  
     public function search() {
@@ -31,11 +31,6 @@ class MeetupRequest
       return;
     }
 
-    protected function callApi($request) {
-      $json_object = file_get_contents($request); 
-      return json_decode($json_object, true);
-    }
-
     protected function constructParams() {
       // SWITCH for value of $route (group OR event)
       switch ($this->request_type) {
@@ -50,6 +45,10 @@ class MeetupRequest
       return MeetupRequest::URL . $route . $params;
     }
 
+    protected function callApi($request) {
+      $json_object = file_get_contents($request); 
+      return json_decode($json_object, true);
+    }
 
 }
 
