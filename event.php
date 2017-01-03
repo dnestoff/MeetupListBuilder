@@ -27,8 +27,7 @@ class Event
     }
 
     protected function convertTimeToDate($epoch_time, $utc_offset) {
-      date_default_timezone_set('America/Chicago');
-      // $epoch = $epoch_time + $utc_offset;
+      date_default_timezone_set('America/Denver');
       return date("m-d-Y @ H:i", substr($epoch_time, 0, 10));
     }
 
