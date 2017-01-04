@@ -46,7 +46,7 @@ class GroupTests extends PHPUnit_Framework_TestCase
   }
 
 
-  public function testdisplay()
+  public function testgroupDisplay()
   {
     $expected = "\nName: Johnny's Team\nOrganizer name: Jane Beach\nCategory: Business\nUrl: https://www.meetup.com/Front-Range-Mind-Body-Fitness-Meetup/events/236488997/\n";
     $result = $this->group->display();
