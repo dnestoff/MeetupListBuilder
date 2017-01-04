@@ -33,7 +33,9 @@ Below is a list of valid and invalid requests.
 
 ## Running Tests
 
-This repo includes a fully passing test suite of its five classes. Tests are stored in the subfolder '/tests' and should be run individually using PHPunits '--default' command. To run individual tests from the command line, use the following command:
+This repo includes a fully passing test suite of its five classes. Tests are stored in the subfolder '/tests' and should be run individually using PHPunit's '--debug' command. 
+
+Run individual test files from the command line using the following command:
 
 - phpunit --debug tests/<file>.php
 

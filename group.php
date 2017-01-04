@@ -1,5 +1,7 @@
 <?php
 
+// The Group class builds a group object and is responsible for how the object is displayed
+
 class Group
 {
   public $name;

@@ -3,6 +3,8 @@
 require('event.php');
 require('group.php');
 
+// The MeetupList class takes the parsed API data and iterates through, creating objects of the Group or Event classes
+
 class MeetupList
 {
   public $items = array();
