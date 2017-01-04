@@ -18,5 +18,4 @@ if (($search_type == 'event' || $search_type == 'group') && strlen($zip) == 5) {
   echo "Oops, something went wrong...\n\nPlease re-enter your desired search type and five-digit zip code:\n\n 'php runner.php <event>/<group> <zip code>'\n\n";
 }
 
-
 ?>

@@ -30,7 +30,7 @@ class MeetupList
     $args = array('name' => $data_array['name'], 'url' => $data_array['link']);
     switch ($this->list_type) {
       case 'event':
-        $args += array('epoch_time'=> $data_array['time'], 'utc_offset' => $data_array['utc_offset'], 'group_name' => $data_array['group']['name']);
+        $args += array('epoch_time'=> $data_array['time'], 'group_name' => $data_array['group']['name']);
         array_push($this->items, new Event($args));
         break;
       case 'group':

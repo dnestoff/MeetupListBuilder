@@ -1,5 +1,6 @@
 <?php
 
+// Sample data represents the json api data decoded into an associative array
 
 $events_data = array(
     array('created' => 1477489288000,

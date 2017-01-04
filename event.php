@@ -14,7 +14,7 @@ class Event
     $this->name = $args['name'];
     $this->group_name = $args['group_name'];
     $this->url = $args['url'];
-    $this->time = $this->convertTimeToDate($args['epoch_time'], $args['utc_offset']);
+    $this->time = $this->convertTimeToDate($args['epoch_time']);
   }
 
   public function display() {
@@ -28,7 +28,7 @@ class Event
     return $event_info;
   }
 
-  protected function convertTimeToDate($epoch_time, $utc_offset) {
+  protected function convertTimeToDate($epoch_time) {
     date_default_timezone_set('America/Denver');
     return date("m-d-Y @ H:i", substr($epoch_time, 0, 10));
   }
