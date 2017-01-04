@@ -1,6 +1,6 @@
 <?php
 
-require('meetup_list.php');
+require('meetuplist.php');
  
 class MeetupListTests extends PHPUnit_Framework_TestCase
 {

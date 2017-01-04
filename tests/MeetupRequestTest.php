@@ -1,6 +1,6 @@
 <?php
 
-require('meetup_request.php');
+require('meetuprequest.php');
  
 class MeetupRequestTests extends PHPUnit_Framework_TestCase
 {

@@ -1,6 +1,6 @@
 <?php
 
-require('list_controller.php');
+require('listcontroller.php');
  
 class ListControllerTests extends PHPUnit_Framework_TestCase
 {

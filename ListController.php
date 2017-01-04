@@ -1,7 +1,7 @@
 <?php
 
-require('meetup_request.php');
-require('meetup_list.php');
+require('meetuprequest.php');
+require('meetuplist.php');
 
 // The ListController class calls upon the Meetup api by instantiating a new MeetupRequest class, then passes the retrieved data to a MeetupList class object
 
