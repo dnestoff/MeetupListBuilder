@@ -19,12 +19,12 @@ class ListController
 
   public function run() 
   {
-    $list = new MeetupList($this->search_type);
+    $list = new MeetupList($this->search_type, $this->zip);
     $api_data = $this->getData();
     foreach ($api_data as $record) {
       $list->add($record);
     }
-    return $list->displayList();
+    return $list->save();
   }
 
   protected function getData() 
