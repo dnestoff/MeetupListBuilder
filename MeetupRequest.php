@@ -2,8 +2,6 @@
 
 // The MeetupRequest class builds the request params string, makes the call to the Meetup API and turns the json response into an associative array
 
-require('config.php');
-
 class MeetupRequest
 {
   // const MEETUP_KEY = getenv('MEETUP_KEY');
