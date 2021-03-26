@@ -1,2 +1,4 @@
 .env
 .csv
+csv_files/
+vendor/
