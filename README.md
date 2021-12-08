@@ -4,12 +4,10 @@ The Meetup ListBuilder is a command line tool for searching groups and events by
 
 This app was built on the following libraries with Composer package manager (version 1.2.4):
 
-=========================
-PHP version: 5.6.29
-PHPUnit version: 5.5.7
-=========================
+* PHP version: 5.6.29
+* PHPUnit version: 5.5.7
 
-Note: As a short-term solution, this repo uses API keys in code that would ultimately be replaced with environmental variables.
+**Note:** As a short-term solution, this repo uses API keys in code that would ultimately be replaced with environmental variables.
 
 ## Using ListBuilder
 
